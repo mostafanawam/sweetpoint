@@ -72,9 +72,14 @@ class CustomerController extends Controller
             //check password
             if (Hash::check($request->password, $userInfo->password)) {
                 session()->put("customer", $userInfo->id);
-                return redirect("/shop/home");
+                if(session()->has('cart')){
+                    return redirect('/shop/cart');
+                }else{
+                    return redirect('/shop/home');
+                }
+                
             } else {
-                return back()->with("fail", "Incorrect password");
+                return redirect()->back()->with("fail", "Incorrect password");
             }
         }
        

@@ -9,14 +9,16 @@ class Product extends Model
 {
     use HasFactory;
     public $timestamps = false;
-    public static function search($search)
-    {
-        
-        return empty($search) ? static::query()
-            : static::query()
-                ->where('product_id', 'like', '%'.$search.'%')
-                ->orWhere('name', 'like', '%'.$search.'%')
-                ->orWhere('price', 'like', '%'.$search.'%')
-                ->orWhere('cat_id', 'like', '%'.$search.'%');
+    
+    public function scopeSearch($query,$val){
+        return $query
+        ->where('prod_id','like','%'.$val.'%')
+        ->orwhere('name','like','%'.$val.'%')
+        ->orwhere('description','like','%'.$val.'%')
+        ->orwhere('price','like','%'.$val.'%')
+        ->orwhere('rank','like','%'.$val.'%')
+        ->orwhere('cat_name','like','%'.$val.'%')
+        ->orwhere('quantity','like','%'.$val.'%')
+        ;
     }
 }

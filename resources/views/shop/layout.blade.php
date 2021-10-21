@@ -21,11 +21,11 @@
   </head>
   
   
-  <body>
+  <body dir="{{ __('layout.dir') }}">
     <div class="notify" id="notify">
         <div class="popup">
           <span class="popuptext alert alert-success" id="myPopup">
-            <i class="fas fa-check-circle"></i> 1 item has been added to your cart
+            <i class="fas fa-check-circle"></i> {{ __('layout.added') }}
           </span>
         </div>
     </div>
@@ -201,15 +201,16 @@
     <div id="myDiv" ><!-- style="display:none;"-->
 
     <div class="overlay"></div>
-      <div class="utility-nav d-none d-md-block " >
+      <div class="utility-nav d-block d-md-block " >
         <div class="container">
           <div class="row">
-            <div class="col-12 col-md-6">
-              <p class="small"> For more info - <i class="fab fa-whatsapp"></i> +961 81936963
+            <div class="col-8 col-md-6">
+              <p class="{{ __('layout.right') }}"> {{ __('layout.moreinfo') }} - <i class="fab fa-whatsapp"></i> {{ __('layout.number') }}
               </p>
             </div>
-            <div class="col-12 col-md-6 text-right">
-              <p class="">EN</p>
+            <div class="col-4 col-md-6 {{ __('layout.left') }}">
+              <a class="lang" href="/lang/en"><img src="https://upload.wikimedia.org/wikipedia/en/thumb/a/a4/Flag_of_the_United_States.svg/1280px-Flag_of_the_United_States.svg.png"></a> | 
+              <a class="lang" href="/lang/ar"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/Flag_of_Lebanon.svg/2560px-Flag_of_Lebanon.svg.png" alt=""></a>
             </div>
           </div>
         </div>
@@ -221,37 +222,28 @@
           <i class="fas fa-bars text-dark icon-single"></i>
           </button>
           <a class="navbar-brand" href="/shop/home" >
-            <h2>Sweet<span>Point</span></h2>
+            <h2>{{ __('layout.brand1') }}<span> {{ __('layout.brand2') }}</span></h2>
           </a>
           <ul class="navbar-nav ml-auto d-block d-md-none">
-            <li class="nav-item">
+            <li class="nav-item" >
                 <a class="btn btn-link" href="/shop/cart"><i class="fas fa-shopping-cart icon-single"></i>
                   <span class="badge badge-danger item-nb cart_qty">
-           
                     {{ $totalqty }}
-                 
                   </span>
-                  
                 </a>
             </li>
           </ul>
           <div class="collapse navbar-collapse">
             <form class="form-inline my-2 my-lg-0 mx-auto" action="/shop/search" method="POST">@csrf
-                <input class="form-control" type="text" name="search" placeholder="Search for products..." aria-label="Search">
+                <input class="form-control text-search" type="text" name="search" placeholder="{{ __('layout.search') }}" aria-label="Search">
                 <button class="btn search-btn my-2 my-sm-0"  type="submit"><i class="fas fa-search"></i></button>
             </form>
             <ul class="navbar-nav">
                 <li class="nav-item">
-                  <a class="btn btn-link" href="/shop/cart"><i class="fas fa-shopping-cart icon-single"></i>
-                    <span class="badge badge-danger item-nb cart_qty">
-                   
-                        {{ $totalqty }}
-                   
-                    </span>
-                  </a>
+                  <a class="btn btn-link" href="/shop/cart"><i class="fas fa-shopping-cart icon-single"></i><span class="badge badge-danger item-nb cart_qty">{{ $totalqty }}</span></a>
                 </li>
                 <li class="nav-item ml-md-3">
-                  <a class="btn btn-login"  href="/shop/login"><i class="fas fa-user-circle mr-1"></i> Log In / Register</a>
+                  <a class="btn btn-login"  href="/shop/login"><i class="fas fa-user-circle mr-1"></i>{{ __('layout.login/reg') }}</a>
                 </li>
             </ul>
           </div>
@@ -271,7 +263,7 @@
           <div class="row">
             <div class="col-12">
               <form class="form-inline my-2 my-lg-0 mx-auto" action="/shop/search" method="POST">@csrf
-                  <input class="form-control" type="text" name="search" placeholder="Search for products..." aria-label="Search">
+                  <input class="form-control" type="text" name="search" placeholder="{{ __('layout.search') }}" aria-label="Search">
                   <button class="btn search-btn" type="submit"><i class="fas fa-search"></i></button>
                 </form>
             </div>
@@ -302,34 +294,34 @@
 @yield('main')
 
 <!-- Start Contact info -->
-<div class="contact-imfo-box">
+<div class="contact-imfo-box ">
   <div class="container">
     <div class="row">
-      <div class="col-md-4 form-group">
-        <i class="fa fa-phone"></i>
-        <div class="overflow-hidden">
-          <h4>Phone</h4>
-          <p class="lead">
-            +961 81936963
+      <div class="col-md-4 form-group {{ __('layout.right') }}">
+        <i class="fa fa-phone {{ __('layout.float') }}"></i>
+        <div class="overflow-hidden" style="padding-right:{{ __('layout.padding') }}">
+          <h4 >{{ __('layout.phone') }}</h4>
+          <p class="lead ">
+            {{ __('layout.number') }}
           </p>
         </div>
       </div>
-      <div class="col-md-4 form-group">
-        <i class="fa fa-instagram"></i>
-        <div class="overflow-hidden">
-          <h4>Instagram</h4>
+      <div class="col-md-4 form-group {{ __('layout.right') }}" >
+        <i class="fa fa-instagram {{ __('layout.float') }}"></i>
+        <div class="overflow-hidden" style="padding-right:{{ __('layout.padding') }}">
+          <h4>{{ __('layout.insta') }}</h4>
           <p class="lead">
             sweetpoint.lb
 
           </p>
         </div>
       </div>
-      <div class="col-md-4 form-group">
-        <i class="fa fa-map-marker"></i>
-        <div class="overflow-hidden">
-          <h4>Location</h4>
+      <div class="col-md-4 form-group {{ __('layout.right') }}">
+        <i class="fa fa-map-marker {{ __('layout.float') }}"></i>
+        <div class="overflow-hidden" style="padding-right:{{ __('layout.padding') }}">
+          <h4>{{ __('layout.location') }}</h4>
           <p class="lead">
-            Lebanon, Saida, Ain-Dilb
+            {{ __('layout.address') }}
           </p>
         </div>
       </div>
@@ -345,33 +337,30 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-3 col-md-6">
-					<h3>About Us</h3>
-					<p>Sweet Art , the name itself, shows that we plan the cakes that precisely suit your decision whatever event it’s. 
-            We are at your administration for a few years, however concoct a wide scope of cakes and pastries.
+					<h3 class="{{ __('layout.right') }}">{{ __('layout.shortstory') }}</h3>
+					<p class="{{ __('layout.right') }}">{{ __('layout.aboutus') }}
           </p>
 				</div>
 				<div class="col-lg-3 col-md-6">
-					<h3>Opening hours</h3>
+					<h3 class="{{ __('layout.right') }}">{{ __('layout.opening') }}</h3>
 					<p><span class="text-color">Monday: </span>2:00 Am - 8:00 PM</p>
 					<p><span class="text-color">Tue-Wed :</span> 2:00 Am - 8:00 PM</p>
 					<p><span class="text-color">Thu :</span> 2:00 Am - 8:00 PM</p>
 					<p><span class="text-color">Fri </span>closed</p>
 					<p><span class="text-color">Sat-Sun :</span> 2:00 Am - 8:00 PM</p>
 				</div>
-				<div class="col-lg-3 col-md-6">
-					<h3>Contact</h3>
-					<p class="lead">Lebanon, Saida, Ain-Dilb</p>
-					<p class="lead">+961 81936963</p>
+				<div class="col-lg-3 col-md-6 {{ __('layout.right') }}">
+					<h3 >{{ __('layout.contactus') }}</h3>
+					<p class="lead">{{ __('layout.address') }}</p>
+					<p class="lead">{{ __('layout.number') }}</p>
 					<p class="lead">adeljaradli@gmail.com</p>
 				</div>
 				<div class="col-lg-3 col-md-6">
-					<h3>Fllow Us</h3>
+					<h3 class="{{ __('layout.right') }}">{{ __('layout.follow') }}</h3>
 			
-					<ul class="list-inline f-social">
+					<ul class="list-inline f-social {{ __('layout.right') }}">
 						<li class="list-inline-item"><a href="https://www.facebook.com/adel.jardali"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
 						<li class="list-inline-item"><a href="https://wa.me/+96181936963"><i class="fa fa-whatsapp" aria-hidden="true"></i></a></li>
-						<!--<li class="list-inline-item"><a href="#"><i class="fa fa-envelope" aria-hidden="true"></i></a></li>-->
-						<!--<li class="list-inline-item"><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>-->
 						<li class="list-inline-item"><a href="https://www.instagram.com/sweetpoint.lb/"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
 					</ul>
 				</div>
@@ -381,8 +370,9 @@
 		<div class="copyright">
 			<div class="container">
 				<div class="row">
+          
 					<div class="col-lg-12">
-						<p class="company-name text-center">All Rights Reserved. &copy; {{ now()->year }} Developed By :
+						<p class="company-name text-center">{{ __('layout.rights') }} &copy; {{ now()->year }} {{ __('layout.dev') }} :
 					<a href="https://mostafanawam.github.io/" target="_blank" class="signiture">Mostafa Nawam</a></p>
 					</div>
 				</div>

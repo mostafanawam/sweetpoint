@@ -56,7 +56,7 @@ class ProductController extends Controller
         if ($succ) {
             //if added to products
             $stock = new Stock;
-            $stock->prod_id = $id;
+            $stock->prodid = $id;
             $stock->quantity = $request->qty;
             $succ1 = $stock->save();
             if ($succ1) {
@@ -83,7 +83,7 @@ class ProductController extends Controller
         }else{//if product exists
             $succ = Product::where("prod_id", $id)->delete();
             if ($succ) {
-                $succ = Stock::where("prod_id", $id)->delete();
+                $succ = Stock::where("prodid", $id)->delete();
                 return redirect("admin/list")->with("success", "Product deleted successfully");
             } else {
                 return redirect("admin/list")->with(
@@ -107,7 +107,7 @@ class ProductController extends Controller
         }else//if product exists
             {
                 $product = DB::table("products")
-                ->join("stocks", "products.prod_id", "stocks.prod_id")
+                ->join("stocks", "products.prod_id", "stocks.prodid")
                 ->join("categories", "products.cat_id", "categories.cat_id")
                 ->where("products.prod_id", $id)
                 ->get();
@@ -143,7 +143,7 @@ class ProductController extends Controller
                 "cat_id" => $request->category,
             ]);
         $affected1 = DB::table("stocks")
-            ->where("prod_id", $id)
+            ->where("prodid", $id)
             ->update([
                 "quantity" => $request->qty,
             ]);
@@ -160,11 +160,7 @@ class ProductController extends Controller
     /***************************************************************************************/
     public function GetProducts()
     {
-        $product = DB::table("products")
-            ->join("stocks", "products.prod_id", "stocks.prod_id")
-            ->join("categories", "products.cat_id", "categories.cat_id")
-            ->get();
-
-        return view("admin.list", ["products" => $product]);
+       
+        return view("admin.list");
     }
 }

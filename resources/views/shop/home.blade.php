@@ -2,16 +2,16 @@
 
 @section('nav')
 
-<title>Sweet Point | Home</title>
+<title>{{ __('layout.brand1') }} {{ __('layout.brand2') }} | {{ __('layout.home') }}</title>
 <li class="nav-item ">
-   <a class="nav-link active" href="/shop/home">Home <span class="sr-only">(current)</span></a>
+   <a class="nav-link active" href="/shop/home">{{ __('layout.home') }} <span class="sr-only">(current)</span></a>
 </li>
 
 <li class="nav-item">
-   <a class="nav-link" href="/shop/products">Products</a>
+   <a class="nav-link" href="/shop/products">{{ __('layout.products') }}</a>
 </li>
 <li class="nav-item">
-   <a class="nav-link" href="/shop/customize">Customize Order</a>
+   <a class="nav-link" href="/shop/customize">{{ __('layout.customize') }}</a>
 </li>
 <!--<li class="nav-item dropdown">
    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -23,7 +23,7 @@
       <a class="dropdown-item" href="#">Terms & Conditions</a>
    </div>-->
 <li class="nav-item">
-   <a class="nav-link" href="/shop/contact">Contact Us</a>
+   <a class="nav-link" href="/shop/contact">{{ __('layout.contactus') }}</a>
 </li>
 @stop
 @section('main')
@@ -61,7 +61,7 @@
 </div>
   
 <div class="container">
-  <h2 class="title-sell">Short Story</h2>
+  <h2 class="title-sell">{{ __('layout.shortstory') }}</h2>
 	<!-- Start About -->
 	<div class="about-section-box">
 		<div class="container">
@@ -69,15 +69,15 @@
 				<div class="col-lg-4 col-md-6 col-sm-12">
 					<img src="{{ asset('images/logo.jpg') }}" alt="" class="img-fluid rounded form-group">
 				</div>
-				<div class="col-lg-6 col-md-6 col-sm-12 text-center">
+				<div class="col-lg-6 col-md-6 col-sm-12">
 					<div class="inner-column">
-						<h1>Welcome To Sweet<span>Point</span></h1>
-						<p>Sweet Point , the name itself, shows that we plan the cakes that precisely suit your decision whatever event it’s. 
-              We are at your administration for a few years, however concoct a wide scope of cakes and pastries.
-              Adel puts stock in development and endeavors to present something new and 
-              something other than what’s expected to meet all client prerequisites. 
+						<h1 class="text-center">{{ __('layout.welcome') }} {{ __('layout.brand1') }} <span>{{ __('layout.brand2') }}</span></h1>
+						<p>{{ __('layout.aboutus') }}
             </p>
-						<a class="btn btn-outline" href="/shop/products">Our Products</a>
+            <div class="text-center">
+              <a class="btn btn-outline" href="/shop/products">{{ __('layout.ourptoducts') }}</a>
+            </div>
+						
 					</div>
 				</div>
 			</div>
@@ -88,7 +88,7 @@
 </div>
 
 <div class="container">
-   <h2 class="title-sell">Best Sellers</h2>
+   <h2 class="title-sell">{{ __('layout.bestsellers') }}</h2>
 
    <div class="container mt-5 mb-5">
       <div class="row g-2">
@@ -100,7 +100,7 @@
                       <div class="d-flex justify-content-between align-items-center"> <span class="category">{{ $best->name }}</span> <span class="price">{{ $best->price }} L.L</span> </div>
                       <p>{{ $best->description }}</p>
                       <div class="buttons d-flex justify-content-center">
-                        <button class="btn btn-outline" id="btn{{ $best->prod_id }}" onclick="AddToCart('{{ $best->prod_id }}')">Add to cart</button> </div>
+                        <button class="btn btn-outline" id="btn{{ $best->prod_id }}" onclick="AddToCart('{{ $best->prod_id }}')">{{ __('layout.addtocart') }}</button> </div>
                   </div>
               </div>
           </div>
@@ -113,7 +113,7 @@
 <script src="{{ asset('js/ourwork.js') }}"></script>
 <link rel="stylesheet" href="{{ asset('css/ourwork.css') }}">
 
-  <h2 class="title-sell">Our Work in Review</h2>
+  <h2 class="title-sell">{{ __('layout.work') }}</h2>
   <div class="container">
    <div class="row row1 rowtable">
 

@@ -1,4 +1,4 @@
-const { fill } = require("lodash");
+/*const { fill } = require("lodash");*/
 
 $(document).ready(function() {
   $('#delivery').show();

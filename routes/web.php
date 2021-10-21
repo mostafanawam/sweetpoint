@@ -37,6 +37,7 @@ Route::get('/shop/login',[ShopController::class,'GetLogin']);//go to the login p
 Route::get('/shop/register',[ShopController::class,'GetRegister']);//go to the login page
 Route::post('/shop/search',[ShopController::class,'SearchProduct']);//go to the login page
 
+Route::get('/lang/{lang}',[ShopController::class,'ChangeLang']);//go to the login page
 /*************************************************************************************************** */
 /***********************************    Order      ************************************************* */
 /*************************************************************************************************** */

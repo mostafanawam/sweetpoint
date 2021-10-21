@@ -2,16 +2,16 @@
 
 
 @section('nav')
-<title>Sweet Point | Products</title>
+<title>{{ __('layout.brand1') }} {{ __('layout.brand2') }} | {{ __('layout.products') }}</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <li class="nav-item ">
-   <a class="nav-link " href="/shop/home">Home <span class="sr-only">(current)</span></a>
+   <a class="nav-link " href="/shop/home">{{ __('layout.home') }} <span class="sr-only">(current)</span></a>
 </li>
 <li class="nav-item">
-   <a class="nav-link active" href="/shop/products">Products</a>
+   <a class="nav-link active" href="/shop/products">{{ __('layout.products') }}</a>
 </li>
 <li class="nav-item">
-   <a class="nav-link" href="/shop/customize">Customize Order</a>
+   <a class="nav-link" href="/shop/customize">{{ __('layout.customize') }}</a>
 </li>
 <!--<li class="nav-item dropdown">
    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -23,7 +23,7 @@
       <a class="dropdown-item" href="#">Terms & Conditions</a>
    </div>-->
 <li class="nav-item">
-   <a class="nav-link" href="/shop/contact">Contact Us</a>
+   <a class="nav-link" href="/shop/contact">{{ __('layout.contactus') }}</a>
 </li>
 @stop
 
@@ -38,14 +38,14 @@
      
    <div class="col-lg-12">
    <div class="heading-title text-center">
-      <h2 class="title-sell">Special Menu</h2>
+      <h2 class="title-sell">{{ __('layout.specialmenu') }}</h2>
    </div></div></div>
 
    <div class="row">
       <div class="col-lg-12">
          <div class="special-menu text-center">
             <div class="button-group filter-button-group">
-               <button class="active btn-cat" data-filter="*">All</button>
+               <button class="active btn-cat" data-filter="*">{{ __('layout.all') }}</button>
                @foreach ($category as $cat)
                <button data-filter=".{{ $cat->cat_id }}" class="btn-cat">{{ $cat->cat_name }}</button>
             @endforeach
@@ -71,7 +71,7 @@
                               <p>{{ $prod->description }}</p>
                         <div class="buttons d-flex justify-content-center">
 <button type="button" class="btn btn-outline add-to-cart"
- id="btn{{ $prod->prod_id }}" onclick="AddToCart('{{ $prod->prod_id }}')" value="">Add to Cart</button>
+ id="btn{{ $prod->prod_id }}" onclick="AddToCart('{{ $prod->prod_id }}')" value="">{{ __('layout.addtocart') }}</button>
                         </div>
                            </div>
                      </div>
