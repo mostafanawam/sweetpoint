@@ -204,13 +204,17 @@
       <div class="utility-nav d-block d-md-block " >
         <div class="container">
           <div class="row">
-            <div class="col-8 col-md-6">
-              <p class="{{ __('layout.right') }}"> {{ __('layout.moreinfo') }} - <i class="fab fa-whatsapp"></i> {{ __('layout.number') }}
+            <div class="col-lg-8 col-8">
+              <p class="{{ __('layout.right') }} top-txt"> {{ __('layout.moreinfo') }} - <i class="fab fa-whatsapp"></i> {{ __('layout.number') }}
               </p>
             </div>
-            <div class="col-4 col-md-6 {{ __('layout.left') }}">
-              <a class="lang" href="/lang/en"><img src="https://upload.wikimedia.org/wikipedia/en/thumb/a/a4/Flag_of_the_United_States.svg/1280px-Flag_of_the_United_States.svg.png"></a> | 
-              <a class="lang" href="/lang/ar"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/Flag_of_Lebanon.svg/2560px-Flag_of_Lebanon.svg.png" alt=""></a>
+            <div class="col-lg-4  col-4 {{ __('layout.left') }}">
+              <a class="lang" href="/lang/en">
+                <img src="{{ asset("images/en.png") }}">
+              </a> | 
+              <a class="lang" href="/lang/ar">
+                <img src="{{ asset('images/arabic.png') }}" alt="">
+              </a>
             </div>
           </div>
         </div>
@@ -221,9 +225,7 @@
           <button type="button" id="sidebarCollapse" class="btn btn-link d-block d-md-none">
           <i class="fas fa-bars text-dark icon-single"></i>
           </button>
-          <a class="navbar-brand" href="/shop/home" >
-            <h2>{{ __('layout.brand1') }}<span> {{ __('layout.brand2') }}</span></h2>
-          </a>
+          <a class="navbar-brand" href="/shop/home" ><h2>{{ __('layout.brand1') }}<span> {{ __('layout.brand2') }}</span></h2></a>
           <ul class="navbar-nav ml-auto d-block d-md-none">
             <li class="nav-item" >
                 <a class="btn btn-link" href="/shop/cart"><i class="fas fa-shopping-cart icon-single"></i>

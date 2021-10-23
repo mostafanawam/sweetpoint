@@ -41,13 +41,13 @@
   <!-- The slideshow -->
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <img src="{{ asset('carousel/1462194.webp') }}" alt="Los Angeles" width="1100" height="500">
+      <img src="{{ asset('carousel/donuts.jpg') }}" alt="Los Angeles" width="1100" height="500">
     </div>
     <div class="carousel-item">
-      <img src="{{ asset('carousel/carosel2.jpg') }}" alt="Chicago" width="1100" height="500">
+      <img src="{{ asset('carousel/22.jpg') }}" alt="Chicago" width="1100" height="500">
     </div>
     <div class="carousel-item">
-      <img src="{{ asset('carousel/car.jpg') }}" alt="New York" width="1100" height="500">
+      <img src="{{ asset('carousel/cake.jpg') }}" alt="New York" width="1100" height="500">
     </div>
   </div>
   
